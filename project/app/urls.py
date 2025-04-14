@@ -1,9 +1,8 @@
 from django.urls import path
-from .import views
-urlpatterns=[
-    path('',views.landingpage, name='home'),
-    path('about/',views.aboutfunc,name='about' ),
-    path('news/',views.newsfun,name='news' ),
-    path('contact/',views.contactfun,name='contact' ),
-    
+from . import views
+
+urlpatterns = [
+    path('add_student/', views.add_student, name='add_student'),
+    path('mark_attendance/', views.mark_attendance, name='mark_attendance'),
+    path('attendance_records/', views.attendance_records, name='attendance_records'),
 ]

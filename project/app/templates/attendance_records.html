@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Records</title>
+</head>
+<body>
+    <h2>Attendance Records</h2>
+
+    <form method="GET">
+        <label for="student">Filter by Student:</label>
+        <select name="student">
+            <option value="">All</option>
+            {% for student in students %}
+            <option value="{{ student.id }}">{{ student.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="date">Filter by Date:</label>
+        <input type="date" name="date">
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>Student Name</th>
+            <th>Roll No</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for record in attendance %}  <!-- Ye line fix kar di -->
+        <tr>
+            <td>{{ record.name }}</td>
+            <td>{{ record.roll_no }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

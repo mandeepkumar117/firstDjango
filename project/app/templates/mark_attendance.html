@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance</title>
+</head>
+<body>
+    <h2>Mark Attendance</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="student">Select Student:</label>
+        <select name="student" required>
+            {% for student in students %}
+            <option value="{{ student.id }}">{{ student.name }} ({{ student.roll_no }})</option>
+            {% endfor %}
+        </select>
+
+        <label for="status">Status:</label>
+        <select name="status" required>
+            <option value="Present">Present</option>
+            <option value="Absent">Absent</option>
+        </select>
+
+        <button type="submit">Submit Attendance</button>
+    </form>
+</body>
+</html>
